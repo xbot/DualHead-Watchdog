@@ -19,12 +19,15 @@ class Watchdog:
     configDir = os.path.expanduser('~/.config/dhdog')
     configFile = os.path.join(configDir, 'data')
     isSettingsDirty = False
+    appDir = os.path.split(os.path.realpath(__file__))[0]
+    iconFile = os.path.join(appDir, 'puppy.png')
+    licenseFile = os.path.join(appDir, 'LICENSE')
 
     def __init__(self):
         self.loadSettings()
 
         self.statusicon = gtk.StatusIcon()
-        self.statusicon.set_from_file('puppy.png') 
+        self.statusicon.set_from_file(self.iconFile) 
         self.statusicon.connect("popup-menu", self.showPopupMenu)
         self.statusicon.set_tooltip("Desktop background image sitter")
 
@@ -216,7 +219,7 @@ class Watchdog:
         self.aboutDlg.set_destroy_with_parent(True)
         self.aboutDlg.set_name("DualHead Watchdog")
         self.aboutDlg.set_version("1.0")
-        self.aboutDlg.set_logo(gtk.gdk.pixbuf_new_from_file('puppy.png')) 
+        self.aboutDlg.set_logo(gtk.gdk.pixbuf_new_from_file(self.iconFile)) 
         self.aboutDlg.set_authors(["Donie Leigh <donie.leigh@gmail.com>"])
         self.aboutDlg.set_artists(['Wackypixel <http://www.wackypixel.com>'])
         self.aboutDlg.set_comments('Watchdog for dual-head display. This program will refresh desktop background image automatically when display status is changed.')
@@ -224,11 +227,11 @@ class Watchdog:
         self.aboutDlg.set_website('https://github.com/xbot/DualHead-Watchdog')
         self.aboutDlg.set_website_label('Project Website')
         try:
-            licFile = open('LICENSE', 'r')
+            licFile = open(self.licenseFile, 'r')
             self.aboutDlg.set_license(licFile.read())
             licFile.close()
         except IOError:
-            self.aboutDlg.set_license('License file missing.')
+            self.aboutDlg.set_license(_('License file missing.'))
         self.aboutDlg.set_wrap_license(True)
                 
         self.aboutDlg.run()
