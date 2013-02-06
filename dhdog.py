@@ -222,7 +222,7 @@ class Watchdog:
         self.aboutDlg.set_logo(gtk.gdk.pixbuf_new_from_file(self.iconFile)) 
         self.aboutDlg.set_authors(["Donie Leigh <donie.leigh@gmail.com>"])
         self.aboutDlg.set_artists(['Wackypixel <http://www.wackypixel.com>'])
-        self.aboutDlg.set_comments('Watchdog for dual-head display. This program will refresh desktop background image automatically when display status is changed.')
+        self.aboutDlg.set_comments('DualHead Watchdog is a Linux desktop app which runs commands or scripts after display settings are changed.')
         self.aboutDlg.set_copyright('Copyright (c) 2013 Donie Leigh')
         self.aboutDlg.set_website('https://github.com/xbot/DualHead-Watchdog')
         self.aboutDlg.set_website_label('Project Website')
