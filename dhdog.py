@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # encoding: utf-8
 
 # dhdog.py - Auto-refresh desktop background image for dual-head display
